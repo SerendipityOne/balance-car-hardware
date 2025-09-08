@@ -1,0 +1,33 @@
+{
+	"files.associations": {
+		"oledfont.h": "c",
+		"i2c.h": "c",
+		"stm32f1xx_hal.h": "c",
+		"iic.h": "c",
+		"oled.h": "c",
+		"inttypes.h": "c",
+		"cmath": "c",
+		"limits": "c",
+		"cstdlib": "c",
+		"stdio.h": "c",
+		"inv_mpu.h": "c",
+		"inv_mpu_dmp_motion_driver.h": "c",
+		"main.h": "c",
+		"stdint.h": "c",
+		"stdlib.h": "c",
+		"type_traits": "c",
+		"sr04.h": "c",
+		"bit": "c",
+		"compare": "c",
+		"new": "c",
+		"stm32f1xx_hal_conf.h": "c",
+		"stm32f1xx_it.h": "c",
+		"tim.h": "c",
+		"mpu6050.h": "c",
+		"motor.h": "c",
+		"stm32f1xx_hal_tim_ex.h": "c",
+		"gpio.h": "c",
+		"stm32f1xx_hal_def.h": "c",
+		"encoder.h": "c"
+	}
+}

@@ -1,0 +1,76 @@
+# Keil uVision Project Files
+*.uvguix.*
+*.uvoptx
+*.uvprojx.bak
+*.uvguix
+*.scvd
+*.plg
+*.opt
+*.axf
+*.htm
+*.lnp
+*.dep
+*.d
+*.crf
+*.o
+*.obj
+*.lst
+*.map
+*.hex
+*.bin
+*.elf
+
+# Keil Directories
+DebugConfig/
+Listings/
+Objects/
+RTE/
+
+# STM32CubeIDE
+.metadata/
+.settings/
+Debug/
+Release/
+*.elf
+*.list
+*.map
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IAR
+Debug/
+Release/
+*.dep
+*.ewd
+*.ewp
+*.eww
+*.dni
+*.wsdt
+*.pbd
+*.pbi
+*.pbi2
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+*.log
+
+# Generated documentation
+*.pdf
+*.doxy

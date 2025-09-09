@@ -28,6 +28,7 @@
 		"stm32f1xx_hal_tim_ex.h": "c",
 		"gpio.h": "c",
 		"stm32f1xx_hal_def.h": "c",
-		"encoder.h": "c"
+		"encoder.h": "c",
+		"pid.h": "c"
 	}
 }

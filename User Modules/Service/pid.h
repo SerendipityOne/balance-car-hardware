@@ -2,7 +2,11 @@
 #define __PID_H__
 
 #include "encoder.h"
+#include "inv_mpu.h"
+#include "inv_mpu_dmp_motion_driver.h"
+#include "mpu6050.h"
 #include "stm32f1xx_hal.h"
+#include "motor.h"
 
 // PID 控制器参数结构体
 typedef struct VerticalPID {
@@ -16,10 +20,10 @@ typedef struct VerticalParams {
   float kd;  // 微分增益
 } VerticalParams;
 
-typedef struct VerticalSpeedPID {
+typedef struct VelocityPID {
   int target;
   Encoder encoder_data;
-} VerticalSpeedPID;
+} VelocityPID;
 
 typedef struct VelocityParams {
   float kp;  // 比例增益
@@ -34,6 +38,11 @@ typedef struct TurnPID {
 typedef struct TurnParams {
   float kp;  // 比例增益
   float kd;  // 微分增益
-}TurnParams;
+} TurnParams;
+
+int vertical_pid(VerticalPID pid);
+int velocity_pid(VelocityPID pid);
+int turn(TurnPID pid);
+void control(void);
 
 #endif  // !__PID_H__

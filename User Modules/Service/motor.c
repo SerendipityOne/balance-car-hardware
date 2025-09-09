@@ -35,3 +35,10 @@ void motor_load(int motor1, int motor2) {
   // 计算PWM占空比
   __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, abs(motor2));
 }
+
+void limit_motor(int *motor1, int *motor2){
+  if(*motor1 > PWM_MAX) *motor1 = PWM_MAX;
+  if(*motor1 < PWM_MIN) *motor1 = PWM_MIN;
+  if(*motor2 > PWM_MAX) *motor2 = PWM_MAX;
+  if(*motor2 < PWM_MIN) *motor2 = PWM_MIN;
+}

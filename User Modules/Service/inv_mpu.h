@@ -33,7 +33,9 @@
 #define INV_XYZ_COMPASS (0x01)
 
 typedef struct MPU {
-  float pitch, roll, yaw;  // 姿态数据
+  float pitch, roll, yaw;        // 姿态数据
+  short gyrox, gyroy, gyroz;     // 陀螺仪数据
+  short accelx, accely, accelz;  // 加速度数据
 } MPU;
 
 //移植官方MSP430 DMP驱动过来
@@ -131,7 +133,6 @@ unsigned short inv_row_2_scale(const signed char* row);
 unsigned short inv_orientation_matrix_to_scalar(const signed char* mtx);
 uint8_t run_self_test(void);
 uint8_t mpu_dmp_init(void);
-uint8_t mpu_dmp_get_data(float* pitch, float* roll, float* yaw);
+uint8_t mpu_dmp_get_data(MPU *mpu);
 
 #endif /* #ifndef _INV_MPU_H_ */
-

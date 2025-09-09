@@ -27,10 +27,8 @@
 /* USER CODE BEGIN Includes */
 #include "IIC.h"
 #include "encoder.h"
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
+
 #include "motor.h"
-#include "mpu6050.h"
 #include "oled.h"
 #include "sr04.h"
 #include "stdio.h"
@@ -53,8 +51,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-Encoder encoder_data;
-MPU mpu_data;
+
 uint8_t display_buf[20];      // 显示缓存
 uint32_t sys_tick;            // 系统时钟
 extern float distance;        // 超声波距离
@@ -126,28 +123,28 @@ int main(void) {
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
-    read_encoder();
-    sprintf((char*)display_buf, "encoder_l:%d   ", encoder_data.encoder_left);
-    HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
-    // OLED_ShowString(0, 2, display_buf, 16);
-    sprintf((char*)display_buf, "encoder_r:%d \r\n", encoder_data.encoder_right);
-    HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
-    OLED_ShowString(0, 4, display_buf, 16);
+    // read_encoder();
+    // sprintf((char*)display_buf, "encoder_l:%d   ", encoder_data.encoder_left);
+    // HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
+    // // OLED_ShowString(0, 2, display_buf, 16);
+    // sprintf((char*)display_buf, "encoder_r:%d \r\n", encoder_data.encoder_right);
+    // HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
+    // OLED_ShowString(0, 4, display_buf, 16);
 
-    HAL_Delay(100);
-    mpu_dmp_get_data(&mpu_data.pitch, &mpu_data.roll, &mpu_data.yaw);
+    // HAL_Delay(100);
+    // mpu_dmp_get_data(&mpu_data.pitch, &mpu_data.roll, &mpu_data.yaw);
 
-    sprintf((char*)display_buf, "pitch:%.2f ", mpu_data.pitch);
-    HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
-    sprintf((char*)display_buf, "roll:%.2f  ", mpu_data.roll);
-    HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
-    sprintf((char*)display_buf, "yaw:%.2f\r\n", mpu_data.yaw);
-    HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
+    // sprintf((char*)display_buf, "pitch:%.2f ", mpu_data.pitch);
+    // HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
+    // sprintf((char*)display_buf, "roll:%.2f  ", mpu_data.roll);
+    // HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
+    // sprintf((char*)display_buf, "yaw:%.2f\r\n", mpu_data.yaw);
+    // HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
 
-    get_distance();
+    // get_distance();
 
-    sprintf((char*)display_buf, "distance:%.2f\r\n", distance);
-    HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
+    // sprintf((char*)display_buf, "distance:%.2f\r\n", distance);
+    // HAL_UART_Transmit(&huart3, display_buf, sizeof(display_buf), 1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -196,13 +193,13 @@ void SystemClock_Config(void) {
   uwTick为系统滴答定时器的计数值
   系统滴答定时器每1ms产生一次中断，计数值递增1 
 */
-void read_encoder(void) {
-  if (uwTick - sys_tick < 10) return;
-  sys_tick = uwTick;  // 更新系统时钟
+// void read_encoder(void) {
+//   if (uwTick - sys_tick < 10) return;
+//   sys_tick = uwTick;  // 更新系统时钟
 
-  encoder_data.encoder_left = read_speed(&htim2);
-  encoder_data.encoder_right = -read_speed(&htim4);  // 两个电机转的方向不一样
-}
+//   encoder_data.encoder_left = read_speed(&htim2);
+//   encoder_data.encoder_right = -read_speed(&htim4);  // 两个电机转的方向不一样
+// }
 
 /* USER CODE END 4 */
 
